@@ -39,6 +39,10 @@ This document is intended to document all tasks required for SAP Developer Cente
 
 ---
 
+### Task: Rename a Repository Group
+
+---
+
 ### Task: Monitor and Publish Trials and Downloads updates
 - **Interval:** When notified by e-mail
 - **Status:** Active
@@ -61,7 +65,23 @@ URL: `https://dx-qa-author-blue.wcms-nonprod.c.eu-de-2.cloud.sap/bin/systemRepor
 
 ---
 
+### Task: Revise a Mission
+
+---
+
+### Task: Delete a Mission
+
+---
+
 ### Task: Add a New Group
+
+---
+
+### Task: Revise a Group
+
+---
+
+### Task: Delete a Group
 
 ---
 
