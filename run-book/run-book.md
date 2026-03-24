@@ -162,6 +162,43 @@ Our team maintains a [tutorial-checker](https://github.com/sap-tutorials/tutoria
 
 ---
 
+### Task: Handle Author Support Requests
+- **Interval:** As needed
+- **Status:** Active
+- **Purpose and Objective:** - Provide support and guidance to tutorial authors on general questions, technical issues, and authoring best practices
+
+1. Monitor incoming support requests via email (riley.rainey@sap.com) and other communication channels
+2. Triage requests and determine appropriate response:
+   - Direct technical questions about tools (VS Code, Git, GitHub)
+   - Tutorial authoring best practices and style guide questions
+   - Access and permission issues
+   - Routing to Developer Advocates for product-specific guidance
+3. Respond to authors with clear guidance or escalate to appropriate team members
+4. Document recurring issues and update author documentation as needed
+
+---
+
+### Task: Review Tutorial Planning Outlines
+- **Interval:** As requested by authors
+- **Status:** Active
+- **Purpose and Objective:** - Review and provide feedback on tutorial plans before authoring begins to ensure alignment with Tutorial Navigator strategy and best practices
+
+1. Receive tutorial planning outlines from authors (typically via email)
+2. Review the proposed structure:
+   - Verify logical flow and chunking of content into appropriate tutorial units
+   - Assess time estimates for individual tutorials and overall groups/missions
+   - Evaluate proposed titles and descriptions for clarity and consistency
+   - Check alignment with existing tutorial content to avoid duplication
+3. Consult with Developer Advocates for the relevant product area as needed
+4. Provide feedback to authors on:
+   - Recommended adjustments to tutorial breakdown
+   - Suggestions for grouping tutorials effectively
+   - Whether content merits a Mission vs. Group designation
+   - Tag recommendations and metadata considerations
+5. Approve plans or request revisions before authors begin development
+
+---
+
 
 ## Tutorial Repository Owners 
 
