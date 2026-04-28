@@ -63,7 +63,7 @@ This document is intended to document all tasks required for SAP Developer Cente
 
 Production **Tutorial Import Admintool** URL (AEM): `https://dx-prod-author.wcms-prod.c.eu-de-2.cloud.sap/etc/sapdx/tools/tutorialsAdmin/gitHubAdmin.html`
 
-Production Log Harvester URL (AEM): `https://dx-qa-author-blue.wcms-nonprod.c.eu-de-2.cloud.sap/bin/systemReport.this.html`
+Production Log Harvester URL (AEM): `https://dx-prod-author.wcms-prod.c.eu-de-2.cloud.sap/bin/systemReport.this.html`
 
 QA-Blue Log Harvester URL (AEM): `https://dx-qa-author-blue.wcms-nonprod.c.eu-de-2.cloud.sap/bin/systemReport.this.html`
 
