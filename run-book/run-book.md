@@ -45,7 +45,7 @@ This document is intended to document all tasks required for SAP Developer Cente
 ---
 
 ### Task: Monitor and Publish Trials and Downloads updates
-- **Interval:** When notified by e-mail
+- **Interval:** As Required
 - **Status:** Active
 - **Purpose and Objective:** - Review and publish Tutorial updates
 
@@ -53,8 +53,19 @@ This document is intended to document all tasks required for SAP Developer Cente
 
 ---
 
-### Task: Check AEM Tutorial Pipeline Error Logs
-URL: `https://dx-qa-author-blue.wcms-nonprod.c.eu-de-2.cloud.sap/bin/systemReport.this.html`
+### Task: Check AEM Tutorial Pipeline
+- **Interval:** When notified by e-mail
+- **Status:** Active
+- **Purpose and Objective:** - Errors or stalls may be encountered in both the QA-Blue and production Markdown to HTML processors.  These processing jobs are driven by independent `cron` jobs that sre set to execute every five minutes.
+
+1. Each environment has its own **Tutorial Import Admintool** page.  At the bottom of this page, you can see the date (CET) of the last execution of the job.  An in-progress job will also be marked as such.  If more than ten minutes has elapsed since the last execution, it should be investigated by EPAM or the sap.com team.
+2. You can also harvest log files.  All lag files are available for download at the corresponding Log Harvester page -- you only need to review the `tutorials.log` file. The hosting container logs at DEBUG level, so this log is quite verbose and challenging to interpret.  I generally look for Java exceptions - and the error associated with those may point to a formatting or structure issue with a newly committed tutorial.
+
+Production **Tutorial Import Admintool** URL (AEM): `https://dx-prod-author.wcms-prod.c.eu-de-2.cloud.sap/etc/sapdx/tools/tutorialsAdmin/gitHubAdmin.html`
+
+Production Log Harvester URL (AEM): `https://dx-qa-author-blue.wcms-nonprod.c.eu-de-2.cloud.sap/bin/systemReport.this.html`
+
+QA-Blue Log Harvester URL (AEM): `https://dx-qa-author-blue.wcms-nonprod.c.eu-de-2.cloud.sap/bin/systemReport.this.html`
 
 ---
 
