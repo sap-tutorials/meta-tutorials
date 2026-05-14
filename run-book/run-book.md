@@ -33,6 +33,14 @@ This document is intended to document all tasks required for SAP Developer Cente
 ---
 
 ### Task: Update Repository Group Owner List
+- **Interval:** As Needed
+- **Status:** Active
+- **Purpose and Objective:** - Maintain a contact list of the owner of each Tutorial GitHub Repository Group
+
+1. Originally created to support CircleCI 'lint-in' of Tutorial repositories, We maintain a list of the team leaders responsible for maintaining editorial control of all repository groups.
+2.  This JSON file is stored as `https://github.com/sap-tutorials/tutorial-checker/blob/main/data/repository.owner.json`
+3. The top-level JSON object contains keys naming each repository group (e.g., "Tutorials").  Within each associated value object is the GitHub username of the owner (`name`) and SAP email address (`email`).
+4. Although CircleCI is less commonly used today as a lint tool, this list remains handy as a database of owners when contact is required.
 
 ---
 
@@ -70,18 +78,6 @@ QA-Blue Log Harvester URL (AEM): `https://dx-qa-author-blue.wcms-nonprod.c.eu-de
 ---
 
 ### Task: Conduct Office Hours Sessions for Authors
-
----
-
-### Task: Add a new Mission
-
----
-
-### Task: Revise a Mission
-
----
-
-### Task: Delete a Mission
 
 ---
 
@@ -124,6 +120,18 @@ Suggested slug formulation: `<product-tag>.<group-title-summary>`
 ---
 
 ### Task: Delete a Group
+
+---
+
+### Task: Add a new Mission
+
+---
+
+### Task: Revise a Mission
+
+---
+
+### Task: Delete a Mission
 
 ---
 
