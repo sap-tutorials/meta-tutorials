@@ -44,7 +44,15 @@ This document is intended to document all tasks required for SAP Developer Cente
 
 ---
 
-### Task: Migrate a New Tag from AEM to IMS
+### Task: Import a New Tag from AEM/Semaphore to to the Tutorial system
+- **Interval:** As Needed
+- **Status:** Active
+- **Purpose and Objective:** - Make a new or changed product name or other metadata tag available to content authors
+
+1. Metadata tags must be defined in IMS before they can be referenced in a Tutorial.
+2. The Tutorial subsystem operates under the umbrella of sap.com data governance.  By agreement with the sap.com team, all Developer Center page tagging must be consistent with wider SAP.com tagging.  To implement this across SAP sites, the sap.com team maintains a universal SAP tagging taxonomy in a system called Semaphore.  We must periodically import new tags from Semaphore into IMS to keep it up to date. We do not perform a bulk import of the full taxonomy.New Semaphore tags are identified (usually by a request to us by the owning product team), and we then import it using a custom AEM plugin module.
+3. Open the [AEM Tutorial Import plugin](https://dx-prod-author.wcms-prod.c.eu-de-2.cloud.sap/etc/sapdx/tools/tutorialsAdmin/gitHubAdmin.html).
+4. Activate the "TAG CONFIGURATION" tab.
 
 ---
 
