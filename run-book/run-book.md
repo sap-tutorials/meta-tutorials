@@ -179,6 +179,40 @@ Our team maintains a [tutorial-checker](https://github.com/sap-tutorials/tutoria
 
 ---
 
+### Task: Manage AEM GitHub Access Keys
+- **Interval:** As Needed
+- **Status:** Active
+- **Purpose and Objective:** - Maintain the pool of GitHub service accounts and their associated API keys used by AEM to poll Tutorial repositories and publish content
+
+The AEM application runs as a cron job that periodically polls Tutorial repositories for recent commits and translates them to new or updated Tutorial HTML pages. Access to these repositories is authenticated via GitHub API keys tied to the following SAP-managed service accounts:
+
+| Account Name | SAP Shared Email Address |
+|---|---|
+| SAP Dev Relations 1 | sapdevrelations1@sap.com |
+| SAP Dev Relations 3 | sapdevrelations3@sap.com |
+| SAP Dev Relations 4 | sapdevrelations4@sap.com |
+| SAP Dev Relations 5 | sapdevrelations5@sap.com |
+| SAP Dev Relations 6 | sapdevrelations6@sap.com |
+| SAP Dev Relations 7 | sapdevrelations7@sap.com |
+| SAP Dev Relations 8 | sapdevrelations8@sap.com |
+| SAP Dev Relations 9 | sapdevrelations9@sap.com |
+| SAP Dev Relations 10 | sapdevrelations10@sap.com |
+| SAP Dev Relations 11 | sapdevrelations11@sap.com |
+| SAP Dev Relations 12 | SAPDevRelations12@global.corp.sap |
+| SAP Dev Relations 13 | SAPDevRelations13@sap.com |
+| SAP Dev Relations 14 | SAPDevRelations14@sap.com |
+| SAP Dev Relations 15 | SAPDevRelations15@sap.com |
+| SAP Dev Relations 19 | sapdevrelations19@sap.com |
+
+> **Note:** Accounts "2" and "16"–"18" are missing from this pool.
+
+1. To regenerate an expired or compromised API key, log in to GitHub using the shared email address for the relevant account (The password is the same for each account.  That password has been communicated via private e-mail to Thomas Jung). Login requires MFA validation via e-mail.  These e-mail addresses are SAP Outlook Shared Inboxes.  Such addresses are administered via the [RMMT Self Service Tool](https://sapit-clientservices-prod-lamb.launchpad.cfapps.eu10.hana.ondemand.com/5a44b00c-a077-47ed-99b4-acfe54a44958.rmmt.sapitrmmt2uiuser) -- [SAP Shared Mailbox Documentation available at this site](https://sap.sharepoint.com/sites/127531/SitePages/Exchange-Online-Shared-Mailbox-Self-Service.aspx?xsdata=MDV8MDJ8STgzODAzOUBnbG9iYWwuY29ycC5zYXB8YTc1YzdlOGM2N2E3NGZjMzc2NDgwOGRlYTA3ZWY4NzZ8NDJmNzY3NmNmNDU1NDIzYzgyZjZkYzJkOTk3OTFhZjd8MHwwfDYzOTEyNDY2NDU1OTA5NjUzN3xVbmtub3dufFRXRnBiR1pzYjNkOGV5SkZiWEIwZVUxaGNHa2lPblJ5ZFdVc0lsWWlPaUl3TGpBdU1EQXdNQ0lzSWxBaU9pSlhhVzR6TWlJc0lrRk9Jam9pVFdGcGJDSXNJbGRVSWpveWZRPT18NjAwMDB8fHw%3d&sdata=dER0ejNjVHFkdUFzRkhTQnhuRVY4bzdiQkVEcHJDSUI2Mkk2Vm9PcVVMcz0%3d)
+2. Navigate to **Settings > Developer settings > Personal access tokens** and generate a new token with `repo` (read) scope.
+3. Update the corresponding key in the AEM configuration. **Location of these keys is needed**
+4. Verify the pipeline resumes normally by monitoring the next scheduled cron execution (see **Check AEM Tutorial Pipeline** task).
+
+---
+
 ### Task: Add an Author to the IMS Application
 
 1. Visit the [BTP Users Cockpit](https://amer.cockpit.btp.cloud.sap/cockpit#/globalaccount/a0ec0d63-f690-42ab-8113-9f6567cd897e/subaccount/a3a2d7d3-941f-4518-b1af-9dcd689db3d4/usersOverview&//) for the IMS Subaccount.
