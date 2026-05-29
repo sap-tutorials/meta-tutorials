@@ -186,10 +186,27 @@ Suggested slug formulation: `<product-tag>.<group-title-summary>`
 ---
 
 ### Task: Revise a Group
+- **Interval:** As Required
+- **Status:** Active
+- **Purpose and Objective:** - Modify some element of a group - add or remove a tutorial, change description, or title.
+
+1. A Group can be modified from the [Groups tab in (production) IMS](https://imsprod-approuter.cfapps.us30.hana.ondemand.com/ui/groups). Search for the Group Title, select the checkbox next to the Group, click the Edit (✎) icon.
+2. Any details on the Edit page can be modified.  Tutorial order can also be changed via drag and drop.
+3. Click the Check-mark (✓) to save the changes.
+4. The change will automatically be propagated through AEM and the page will be updated (this usually takes less than two minutes to complete)
+
+**NOTE:** The slug (URL) name of the Group cannot be modified in this manner.  If the Groups Slug does need to be changed, you must first delete the existing Group, then recreated (and, by doing this, you will be permitted in AEM to assign a new Group Slug)
 
 ---
 
 ### Task: Delete a Group
+- **Interval:** As Required
+- **Status:** Active
+- **Purpose and Objective:** - Modify some element of a group - add or remove a tutorial from the Group, change the description, title, or associated tags.
+
+1. A Group can be modified from the [Groups tab in (production) IMS](https://imsprod-approuter.cfapps.us30.hana.ondemand.com/ui/groups). Search for the Group Title, select the checkbox next to the Group, click the Delete (🗑️) icon.
+2. The change will automatically be propagated through AEM and the page will be removed from the Tutorial Navigator (this usually takes less than two minutes to complete)
+3. Existing usage analytics for the Group are unaffected by a deletion.
 
 ---
 
