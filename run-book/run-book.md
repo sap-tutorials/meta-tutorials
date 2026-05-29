@@ -50,9 +50,35 @@ This document is intended to document all tasks required for SAP Developer Cente
 - **Purpose and Objective:** - Make a new or changed product name or other metadata tag available to content authors
 
 1. Metadata tags must be defined in IMS before they can be referenced in a Tutorial.
-2. The Tutorial subsystem operates under the umbrella of sap.com data governance.  By agreement with the sap.com team, all Developer Center page tagging must be consistent with wider SAP.com tagging.  To implement this across SAP sites, the sap.com team maintains a universal SAP tagging taxonomy in a system called Semaphore.  We must periodically import new tags from Semaphore into IMS to keep it up to date. We do not perform a bulk import of the full taxonomy.New Semaphore tags are identified (usually by a request to us by the owning product team), and we then import it using a custom AEM plugin module.
+2. The Tutorial subsystem operates under the umbrella of sap.com data governance.  By agreement with the sap.com team, all Developer Center page tagging must be consistent with wider SAP.com tagging.  To implement this across SAP sites, the sap.com team maintains a universal SAP tagging taxonomy in a system called Semaphore.  We must periodically import new tags from Semaphore into IMS to keep it up to date. We do not perform a bulk import of the full taxonomy. New Semaphore tags are identified (usually by a request to us by the owning product team), and we then import them using a custom AEM plugin module.
 3. Open the [AEM Tutorial Import plugin](https://dx-prod-author.wcms-prod.c.eu-de-2.cloud.sap/etc/sapdx/tools/tutorialsAdmin/gitHubAdmin.html).
 4. Activate the "TAG CONFIGURATION" tab.
+5. To locate the tag in the AEM taxonomy tree, first find it in Semaphore/Progress by searching there. Note the taxonomy path (e.g., `software-product-function > Joule Studio`). Tags may live under `software-product` or `software-product-function` — check both if needed.
+6. Navigate the AEM taxonomy tree in the TAG CONFIGURATION tab to the same path. The tree is not searchable; navigate alphabetically. The tree uses non-standard iconography — items that look like folders are actually tag terminations.
+7. Once located, select the tag. Its AEM taxonomy path will populate the export field.
+8. Click **Export Tags** to pull the tag data from AEM into IMS.
+9. Verify the new tag appears and is selectable in the IMS authoring interface before notifying the requesting author.
+
+> **Note:** The **Cancel** and **Save** buttons on this plugin page have no effect — they are UI artifacts from the EPAM-built plugin. Only the action buttons specific to each tab (e.g., **Export Tags**) perform real operations.
+
+> **Note:** A **"Developer Tags Update"** button also appears on this page. According to Dmytro, this performs an integrity check between AEM and IMS and may remove tags that have been removed from IMS. This operation has never been performed and carries risk of removing tags that are still referenced in tutorial source files. Do not use it without first auditing tag usage across all tutorial repositories and consulting with the development team.
+
+---
+
+### Task: Add a New Tutorial Repository to the Pipeline
+
+When a new GitHub tutorial repository is created under the `sap-tutorials` organization, it must be registered in the AEM Tutorial Catalog before AEM will begin polling it.
+
+1. Create the new repository in the `sap-tutorials` GitHub organization following naming conventions (consult the Repository Owner list for existing name patterns).
+2. Ensure the appropriate `sapdevrelations*` service accounts (see **Manage AEM GitHub Access Keys**) have read access to the new repository.
+3. Log in to the [Production AEM authoring page](https://dx-prod-author.wcms-prod.c.eu-de-2.cloud.sap/aem/start.html).
+4. Navigate to **Sites > Developers website > tutorials** (the `tutorials` page, not the tutorials subdirectory).
+5. Open the page for editing and locate the **Tutorial Catalog** plugin component.
+6. Add the new repository name to the list. The order determines processing order — new repositories can be added at the end.
+7. Save the page.
+8. Repeat steps 3–7 for the QA-Blue environment (`https://dx-qa-author-blue.wcms-nonprod.c.eu-de-2.cloud.sap`). Note that in QA, repository names carry a `-contribution` suffix, and the meta-tutorials repository is also listed (it is intentionally absent from production).
+
+> **Note:** This catalog is the definitive list of repositories AEM will scan. It is not in GitHub and is not obvious to discover — it lives inside an AEM Sites page as an embedded plugin component.
 
 ---
 
@@ -63,19 +89,53 @@ This document is intended to document all tasks required for SAP Developer Cente
 ### Task: Monitor and Publish Trials and Downloads updates
 - **Interval:** As Required
 - **Status:** Active
-- **Purpose and Objective:** - Review and publish Tutorial updates
+- **Purpose and Objective:** - Process incoming download update requests from product teams and publish the updated `trials-and-downloads.json` file to the live SAP.com Trials and Downloads page
 
-  The [SAP Digital Services Request Tool](https://dsrequest.int.sap/home) (DSRT) 
+#### Background
+
+Product teams submit file update requests via the [SAP Digital Services Request Tool](https://dsrequest.int.sap/home) (DSRT). Riley Rainey, Thomas Jung, and Antonio are assigned to the **Developer Relations Downloads** queue. The live data that drives the Trials and Downloads page is a single JSON file (`trials-and-downloads.json`) maintained in the `sap-tutorials` headless content repository. Each top-level collection in the JSON represents a product; within it, collection members describe individual download files (version, file metadata, etc.). As of this writing, this is the only file in that repository that is still actively served on the live SAP.com site.
+
+Authors/product teams are trained (via a meta-tutorial) to:
+1. Upload their file to FCMS themselves.
+2. Compute the SHA-256 checksum of the file.
+3. Embed the FCMS upload result metadata and checksum into their DSRT request.
+
+#### Procedure
+
+1. **Monitor the DSRT queue.** Open the [SAP Digital Services Request Tool](https://dsrequest.int.sap/home) and check the **Developer Relations Downloads** queue for new requests.
+2. **Obtain the file and checksum.** If the requester has already uploaded to FCMS and included the metadata and SHA-256 digest in the request, use that. Otherwise, download the file from the location they provide, compute the SHA-256 digest (`shasum -a 256 <file>`), and upload it to FCMS yourself:
+   - Open the [SAP FCMS Download Manager Cockpit](https://fcmscockpit-supportportal.dispatcher.hana.ondemand.com/index.html#).
+   - Select the file to upload and check it in, providing the SHA-256 checksum and the ICD number of the submitter.
+   - Save; FCMS returns a unique download ID and associated metadata.
+3. **Update `trials-and-downloads.json`.** A Claude skill is configured in the `meta-tutorials` project to process the FCMS result metadata. Copy the metadata block from the DSRT request (or from the FCMS output), paste it into the Claude Code session, and invoke the skill. The skill will locate the correct product collection in `trials-and-downloads.json` and apply the update. Verify the change looks correct before proceeding.
+4. **Upload the updated JSON to AEM.**
+   - Log in to the [Production AEM authoring page](https://dx-prod-author.wcms-prod.c.eu-de-2.cloud.sap/aem/start.html).
+   - Navigate to **Assets > Files > headless > developers > en**.
+   - Switch to **List view** (the default card view is difficult to use here).
+   - Locate `trials-and-downloads.json` (not `trials-downloads.json` — there are two similarly named files; use the one with "and").
+   - Drag and drop the updated local file onto the AEM entry. When prompted, choose **Create Version**, then confirm.
+   - Select the file and click **Quick Publish**.
+5. **Publish the Trials and Downloads page.**
+   - From the AEM top navigation, go to **Sites** and navigate to the Developers website.
+   - Locate the `trials-downloads` page (the page slug uses a hyphen, not "and").
+   - Select it and click **Quick Publish**. This publishes the page on the Developer Center site, which has a 301 redirect in place pointing to the main SAP.com Trials and Downloads umbrella page. Publishing here propagates the update to both locations.
+6. **Verify.** After a few seconds, confirm the updated content appears on the live [SAP Trials and Downloads page](https://www.sap.com/products/try-sap-trials-downloads.html).
+
+#### AEM navigation tip
+
+After selecting a file in AEM Assets, the top navigation bar changes and hides the global breadcrumb. To return to the top-level navigation (which includes **Sites**): deselect the file first (uncheck it), then use the top navigation to go to **Assets**, and from there navigate to the AEM home to access **Sites**.
 
 ---
 
 ### Task: Check AEM Tutorial Pipeline
 - **Interval:** When notified by e-mail
 - **Status:** Active
-- **Purpose and Objective:** - Errors or stalls may be encountered in both the QA-Blue and production Markdown to HTML processors.  These processing jobs are driven by independent `cron` jobs that sre set to execute every five minutes.
+- **Purpose and Objective:** - Errors or stalls may be encountered in both the QA-Blue and production Markdown to HTML processors.  These processing jobs are driven by independent `cron` jobs that are set to execute every five minutes.
 
 1. Each environment has its own **Tutorial Import Admintool** page.  At the bottom of this page, you can see the date (CET) of the last execution of the job.  An in-progress job will also be marked as such.  If more than ten minutes has elapsed since the last execution, it should be investigated by EPAM or the sap.com team.
-2. You can also harvest log files.  All lag files are available for download at the corresponding Log Harvester page -- you only need to review the `tutorials.log` file. The hosting container logs at DEBUG level, so this log is quite verbose and challenging to interpret.  I generally look for Java exceptions - and the error associated with those may point to a formatting or structure issue with a newly committed tutorial.
+2. You can also harvest log files.  All log files are available for download at the corresponding Log Harvester page -- you only need to review the `tutorials.log` file. The hosting container logs at DEBUG level, so this log is quite verbose and challenging to interpret.  Look for Java exceptions; the error associated with those may point to a formatting or structure issue with a newly committed tutorial.
+3. If the `tutorials.log` surface a 500 error from IMS, the IMS Spring Boot log is in BTP Cloud Foundry (not in AEM). Navigate to the IMS subaccount in BTP and locate the Spring Boot application log there for the root cause.
+4. If a specific repository is causing repeated failures and blocking processing of all other repositories (repositories are processed serially), use the **"penalty box"** technique: in the Tutorial Import Admintool, locate the Tutorial Catalog plugin, find the offending repository in the ordered list, and drag it to the bottom. This allows all other repositories to process normally while the problem repo is investigated. Remember to restore its position once the issue is resolved.
 
 Production **Tutorial Import Admintool** URL (AEM): `https://dx-prod-author.wcms-prod.c.eu-de-2.cloud.sap/etc/sapdx/tools/tutorialsAdmin/gitHubAdmin.html`
 
@@ -94,16 +154,18 @@ QA-Blue Log Harvester URL (AEM): `https://dx-qa-author-blue.wcms-nonprod.c.eu-de
 Requires Administrator access in the IMS Production Application and Production AEM Access.
 
 1. Open the '[Groups](https://imsprod-approuter.cfapps.us30.hana.ondemand.com/ui/groups)' in the production IMS application.
-2. Press the "+" in the lower right corner of the page to open the Add group panel.
-
-...
-
+2. Press the "+" in the lower right corner of the page to open the Add group panel. Fill in the group title, description, experience level, and add the tutorial members in order. A group is always an ordered list of tutorials (no other content types). Click the checkmark to save.
+3. After saving, IMS returns to the full group list without displaying the new group's ID. Search for the group by title immediately and note the numeric IMS Group ID — you will need it in the next step.
 4. Open the [production AEM authoring page](https://dx-prod-author.wcms-prod.c.eu-de-2.cloud.sap/aem/start.html)
 5. Click on "Tools > Developers > Group Admin"
 6. Click on "+ add group"
 7. Enter the IMS ID of the Group in the ID field, AEM will respond by looking up the details for the group and filling other fields in the form.
 8. In the "Page Name" field, enter a unique slug to be used to construct the URL of the group.  Use only lower case characters, numbers and '-' as word separators.  Groups from the same team should follow a similar pattern.  You'll need to look at the URLS used for existing groups to get the gist here. The URL will become `https://developers.sap.com/tutorials/group.<page-name>.html`
 9. Press 'Save' when done.  The HTML Page and an associated [Tutorial Navigator](https://developers.sap.com/tutorial-navigator.html) entry will be published.
+
+> **Note on subsequent updates:** If the group definition is later revised in IMS (tutorials added/removed, title changed, etc.), the corresponding AEM page appears to update automatically at some point — the exact trigger and timing is not fully understood. If an update is time-sensitive, re-entering the group in the AEM Group Admin tool will force a refresh.
+
+> **Note on deletion:** Deleting a group in IMS will delete the corresponding AEM HTML page. The IMS record is retained and marked as deleted for analytics purposes.
 
 Suggested slug formulation: `<product-tag>.<group-title-summary>`
 
