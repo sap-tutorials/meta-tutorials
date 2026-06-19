@@ -77,8 +77,6 @@ Authors can opt into AI question generation per-step (`[AUTOAUTHOR_N]`) or tutor
 
 The directive for this step is `[AUTOAUTHOR_5:text]`, so the AI generates a free-text question. The free-text grader from [Tutorial 2](../use-validate-to-ai-grade-free-text-answers/) then grades the reader's answer at runtime.
 
-![build-time AI quiz generation](001-build-time-generation.png)
-
 ### When to use AUTOAUTHOR vs hand-authored
 
 AUTOAUTHOR shines for *coverage*. If you have a 20-step tutorial and you want every step to have a quiz but you don't want to spend an afternoon writing 20 questions, slap `[AUTOAUTHOR_ALL]` on it and the build does it for you. The questions are usually decent — not great, not bad — and the cache means once you accept them they're stable across builds.

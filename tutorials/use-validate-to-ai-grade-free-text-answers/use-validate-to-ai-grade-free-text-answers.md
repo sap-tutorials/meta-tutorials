@@ -70,8 +70,6 @@ The `###Match` is plain prose, not bullet points and not a strict definition. Th
 
 Scroll to the input area below this step's body. Write your answer to the question — *in your own words, what's the difference between a group and a mission in the tutorial system?* — and submit. The AI grader compares your answer to the benchmark above and returns a pass/fail with feedback on what concepts you covered and what (if anything) was missing.
 
-![text answer feedback](001-text-answer-feedback.png)
-
 The companion `rules.vr` for this tutorial wires step 4 to AI grading via the block shown earlier. As with CODECHECK, the reference benchmark never appears in the reader's view; only the AI grader sees it.
 
 ### What good criteria look like
