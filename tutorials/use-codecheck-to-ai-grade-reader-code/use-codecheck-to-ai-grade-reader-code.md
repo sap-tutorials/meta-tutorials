@@ -30,8 +30,6 @@ When you tag a step with `[CODECHECK_N]`, the platform renders a paste-code text
 
 This sits between two extremes. Exact-string matching is too strict for real code (whitespace, variable names, equivalent constructs all vary). Skipping validation entirely teaches nothing. AI grading lands in the middle: the reader gets feedback shaped by your intent, not your literal characters.
 
-![rules.vr file with a CODECHECK block highlighted](001-rules-vr-overview.png)
-
 The feature is gated by `ChatSettings.codeCheckEnabled`. If your platform admin has it off, the step renders normally and the paste area never appears. Readers see no broken UI; the directive is simply a no-op until enabled.
 
 ### The rules.vr block format
@@ -101,8 +99,6 @@ Notice three authoring choices: the goal mentions all three required fields expl
 Below this paragraph you should see a paste-code area. Write a small CDS entity definition called `Books` that uses the `: managed` aspect, has a key field `ID : Integer`, and a localized string `title` field. Submit it; the AI will grade your answer against the spirit of the request — your variable names, formatting, and minor wording differences won't trip it up.
 
 If the grader says you missed something, click *Show hint* for a nudge. After three hints, you'll have most of the answer; the AI never reveals the full reference solution.
-
-![codecheck grading inline](002-codecheck-grading-result.png)
 
 The companion `rules.vr` for this tutorial (in `meta-tutorials-Contribution`) carries `[CODECHECK_4]` to wire up this step. The reader doesn't need to know that — when the step loads, the platform fetches the trimmed spec, renders the paste area, and routes submissions through `/api/codecheck` to grade.
 
