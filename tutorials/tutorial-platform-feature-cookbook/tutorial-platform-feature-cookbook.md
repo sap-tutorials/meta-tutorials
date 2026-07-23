@@ -168,3 +168,4 @@ When you embed an image in a tutorial, like `![alt text](image.png)`, the platfo
 Try it on any image in this tutorial set — for example, the screenshots in [Tutorial 1](../use-codecheck-to-ai-grade-reader-code/) or [Tutorial 2](../use-validate-to-ai-grade-free-text-answers/). Click any image; the lightbox opens with a deep-link URL you can share, plus zoom, pan, and gallery navigation if there are sibling images on the page. ESC closes it; the URL deep-link reopens it on a fresh page load.
 
 The cookbook itself ships no images on purpose — the entire body is text demonstrating syntax — so the demo for this step lives in the screenshot-heavy sibling tutorials linked above.
+<!-- ci: #1154 real single-tutorial slug-targeted test 2026-07-23T1157Z -->
