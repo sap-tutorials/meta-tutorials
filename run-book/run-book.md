@@ -369,3 +369,4 @@ Repository owners are designated any time a new Tutorial Repository Group is cre
 **SAP Developer Tutorials Work Zone site** - `https://workzone.one.int.sap/site#workzone-home&/groups/A7NmsKmoG9vVaxizKhdQOk/workpage_tabs/r9dX7mvdcXW5KMmWvG2NYl`
 
 ## Terms
+<!-- ci: #1154 notify app-auth verify 2026-07-23T0013Z -->
