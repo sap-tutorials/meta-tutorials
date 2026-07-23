@@ -14,3 +14,4 @@ We have a large tutorial pipeline in the works, but in case you have something i
 
 # License
 The tutorials in this repository are provided under the Terms & Conditions set out in the [`LICENSE.txt`](LICENSE.txt) file.
+<!-- ci: #1154 notify app-auth verify 2026-07-23T0010Z -->
