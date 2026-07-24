@@ -82,10 +82,6 @@ When a new GitHub tutorial repository is created under the `sap-tutorials` organ
 
 ---
 
-### Task: Rename a Repository Group
-
----
-
 ### Task: Monitor and Publish Trials and Downloads updates
 - **Interval:** As Required
 - **Status:** Active
@@ -146,6 +142,8 @@ QA-Blue Log Harvester URL (AEM): `https://dx-qa-author-blue.wcms-nonprod.c.eu-de
 ---
 
 ### Task: Conduct Office Hours Sessions for Authors
+
+Just a placeholder: stay in contact with the Authors.
 
 ---
 
@@ -212,21 +210,36 @@ Suggested slug formulation: `<product-tag>.<group-title-summary>`
 
 ### Task: Add a new Mission
 
+1. Missons are first added in IMS (in the Missions tab)
+2. Record the Mission ID of the newly created mission.
+2. The Mission then must be added in [AEM Prod - Mission Admin](https://dx-prod-author.wcms-prod.c.eu-de-2.cloud.sap/etc/sapdx/tools/tutorialsAdmin/missionAdmin.html). You will need the mission ID and the slug to be used for the mission. You can also optionally add a Mission SVG Icon.
+
 ---
 
 ### Task: Revise a Mission
+
+1. Changes in a Mission can normally be accomplished directly in IMS.  Changes are automatically propagated to production every 5 minutes.
 
 ---
 
 ### Task: Delete a Mission
 
+1. Normally, you'd just delete the mission in IMS and the AEM sync will take care of the rest.  In rare cases you must delete it manually in [AEM Prod - Mission Admin](https://dx-prod-author.wcms-prod.c.eu-de-2.cloud.sap/etc/sapdx/tools/tutorialsAdmin/missionAdmin.html)
+
 ---
 
 ### Task: Retiring a Tutorial
 
+1. Deleting the Tutorial folder from the corresponding production repository will result in the Tutorial being deleted.  A deleted Tutorial is automatically removed from referencing Groups and Missions.
+
 ---
 
 ### Task: Define a New App Space Event
+
+1. An IMS Event is used to define the time interval used for App Space analytics and completions attributed to the App Space Mission.
+2. Create an Event in IMS.
+3. Assign the Event to the appropriate Mission targeted for use in the App Space.
+4. App Space analytics will then be automatically assocaited with completions in the Event's time interval.
 
 ---
 
@@ -235,14 +248,6 @@ Suggested slug formulation: `<product-tag>.<group-title-summary>`
 ---
 
 ### Task: Designate or Change a Repository Group Owner
-
----
-
-### Task: IMS Production Backup
-
----
-
-### Task: IMS Production Recovery
 
 ---
 
