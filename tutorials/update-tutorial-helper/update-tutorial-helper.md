@@ -95,6 +95,19 @@ Add additional information: Background information, longer prerequisites
 4.  Confirm that the `com.sap.developers.markdown.validator-alternative` file is listed under the **Community Packages** section
 
 [VALIDATE_1]
+###Rule
+single-choice
+
+###Question
+Where in Atom can you confirm that the `com.sap.developers.markdown.validator-alternative` plug-in is installed?
+
+###Match
+[ ] Under **Core Packages**
+[ ] Under **Themes**
+[x] Under **Community Packages**
+[ ] Under **Dev Packages**
+
+[VALIDATE_1]
 [ACCORDION-END]
 
 

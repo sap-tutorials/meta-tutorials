@@ -4,6 +4,7 @@ description: Delete a tutorial from QA that is not yet in production.
 time: 5
 tags: [ tutorial>beginner, topic>cloud]
 primary_tag: topic>cloud
+parser: v2
 ---
 
 # Delete a Tutorial from QA (v2 parser)

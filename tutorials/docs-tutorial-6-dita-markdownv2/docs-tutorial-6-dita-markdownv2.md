@@ -3,6 +3,7 @@ title: (Optional) Create a new tutorial using the DITA CMS (v2 parser)
 primary_tag: topic>cloud
 tags: [ tutorial>beginner, topic>cloud  ]
 time: 30
+parser: v2
 ---
 
 # (Optional) Create a new tutorial using the DITA CMS (v2 parser)
