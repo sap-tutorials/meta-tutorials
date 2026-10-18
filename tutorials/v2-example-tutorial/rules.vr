@@ -1,0 +1,12 @@
+[VALIDATE_3]
+###Rule
+single-choice
+
+###Question
+True or False - Pipes are required on the outside of table content.
+
+###Match
+[ ] True
+[x] False
+
+[VALIDATE_3]

@@ -1,0 +1,14 @@
+[VALIDATE_6]
+###Rule
+multiple-choice
+
+###Question
+Which of the following are filtering methods on the Tutorial Dashboard
+
+###Match
+[ ] owner name
+[x] primary tag
+[ ] last updated
+[x] monitored
+
+[VALIDATE_6]
