@@ -1,0 +1,12 @@
+
+[VALIDATE_1]
+###Rule
+exact-match
+
+###Question
+In which section is the Tutorial Helper installed?
+
+###Match
+Community Packages
+
+[VALIDATE_1]

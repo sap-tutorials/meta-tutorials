@@ -1,0 +1,143 @@
+[VALIDATE_5]
+###Rule
+single-choice
+
+###Question
+Select the correct file which contains the routing instructions:
+
+###Match
+[ ] Detail.view.xml
+[ ] Component.js
+[ ] formatter.js
+[x] manifest.json
+
+[VALIDATE_5]
+
+
+
+[VALIDATE_6]
+###Rule
+multiple-choice
+
+###Question
+Which of the following file(s) must be modified to insert an `i18n` string in an app view?
+
+###Match
+[x] Detail.view.xml
+[ ] Component.js
+[x] i18n.properties
+[ ] manifest.json
+
+[VALIDATE_6]
+
+
+
+[VALIDATE_7]
+###Rule
+exact-match
+
+###Question
+Enter code.
+
+###Match
+OrderButtonText=Order
+OrderDialogTitle=Order Product
+OrderDialogMsg=Do you want to order this product now?
+OrderDialogSuccessMsg=The product has been ordered
+
+[VALIDATE_7]
+
+
+
+[VALIDATE_8]
+###Rule
+exact-match
+
+###Question
+Enter code.
+
+###Match
+OrderButtonText=Order
+OrderDialogTitle=Order Product
+OrderDialogMsg=Do you want to order this product now?
+OrderDialogSuccessMsg=The product has been ordered
+
+[VALIDATE_8]
+
+
+
+[VALIDATE_9]
+###Rule
+regex-begins-with
+
+###Question
+Enter code.
+
+###Match
+document.GetElementById('test');
+
+[VALIDATE_9]
+
+
+
+[VALIDATE_10]
+###Rule
+regex-substring
+
+###Question
+Enter code.
+
+###Match
+<footer>
+   <Bar>
+    <contentRight>
+      <Button text="{i18n>OrderButtonText}"
+                   type="Accept"
+                 icon="sap-icon://accept"
+                 press="handleOrder" />
+    </contentRight>
+  </Bar>
+
+[VALIDATE_10]
+
+
+
+[VALIDATE_11]
+###Rule
+regex-with-id-exact-match
+
+###Question
+Enter code.
+
+###Match
+https://codejam[id]trial.hanatrial.ondemand.com/codejam/mylibrary.xsjs
+
+[VALIDATE_11]
+
+
+
+[VALIDATE_12]
+###Rule
+http-status-check
+
+###Question
+Enter URL.
+
+###Match
+200
+
+[VALIDATE_12]
+
+
+
+[VALIDATE_13]
+###Rule
+regex
+
+###Question
+Enter code.
+
+###Match
+^https:\/\/account.hanatrial.ondemand.com\/cockpit\/.*\/\w\d+trial\/
+
+[VALIDATE_13]
