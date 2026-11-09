@@ -10,7 +10,7 @@ testedWith:
   "@sap/cds": "10.x"
   node: "22"
 requires:
-  - hana-cloud-tutorial-1
+  - hana-cloud-mission-trial-1
 ---
 
 # Content Reuse and References
@@ -29,7 +29,7 @@ requires:
 
 ### Step 1: Prerequisites and Versions
 
-This tutorial requires :tutorial[hana-cloud-tutorial-1] to be completed first.
+This tutorial requires :tutorial[hana-cloud-mission-trial-1] to be completed first.
 
 The tested environment is declared in the `testedWith` frontmatter above — you will see a collapsible "Tested with" panel at the top of the rendered tutorial.
 
@@ -48,14 +48,14 @@ Reference SAP resources inline without hard-coding URLs:
 - SAP Note: :note[2471802] — links to the SAP Note on me.sap.com
 - Help Portal: :help[cap/docs/about-cap] — links to help.sap.com/docs/cap/docs/about-cap
 - API reference: :api[cds.ql.SELECT]{lib=cap-node} — links to the CAP Node.js API docs
-- Tutorial cross-reference: :tutorial[hana-cloud-tutorial-1] — links to another tutorial
+- Tutorial cross-reference: :tutorial[hana-cloud-mission-trial-1] — links to another tutorial
 - Version badge: :since[CAP 10] — renders a version tag
 
 ### Step 4: Prerequisite Cards
 
 The `::requires` directive renders a card linking to a prerequisite tutorial.
 
-::requires[hana-cloud-tutorial-1]
+::requires[hana-cloud-mission-trial-1]
 
 When you are authenticated, the card shows your completion status (Completed, In progress, or Start).
 
