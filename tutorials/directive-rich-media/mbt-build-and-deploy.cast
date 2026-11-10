@@ -1,0 +1,6 @@
+{"version":2,"width":80,"height":20,"timestamp":0,"title":"mbt build and deploy (placeholder)"}
+[0.2,"o","$ mbt build\r\n"]
+[0.8,"o","Building MTA project...\r\n"]
+[1.6,"o","[INFO] mtar created: mta_archives/app_1.0.0.mtar\r\n"]
+[2.2,"o","$ cf deploy mta_archives/app_1.0.0.mtar\r\n"]
+[3,"o","Deploying... OK\r\n"]
