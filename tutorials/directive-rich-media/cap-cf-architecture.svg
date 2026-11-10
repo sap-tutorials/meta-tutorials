@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420">
+  <rect width="900" height="420" fill="#ffffff"/>
+  <text x="450" y="34" font-family="Arial" font-size="20" fill="#354a5f" text-anchor="middle" font-weight="bold">CAP Application on SAP BTP Cloud Foundry</text>
+  <g font-family="Arial" font-size="15" fill="#354a5f" text-anchor="middle">
+    <rect x="60" y="80" width="200" height="90" rx="8" fill="#eaf1fb" stroke="#0a6ed1" stroke-width="2"/>
+    <text x="160" y="130">AppRouter</text>
+    <rect x="350" y="80" width="200" height="90" rx="8" fill="#eaf1fb" stroke="#0a6ed1" stroke-width="2"/>
+    <text x="450" y="130">CAP srv (Node.js)</text>
+    <rect x="640" y="80" width="200" height="90" rx="8" fill="#eaf1fb" stroke="#0a6ed1" stroke-width="2"/>
+    <text x="740" y="130">SAP HANA Cloud</text>
+    <rect x="350" y="260" width="200" height="90" rx="8" fill="#fef7e5" stroke="#e9730c" stroke-width="2"/>
+    <text x="450" y="310">XSUAA</text>
+  </g>
+  <g stroke="#89919a" stroke-width="2" fill="none" marker-end="url(#a)">
+    <line x1="260" y1="125" x2="350" y2="125"/>
+    <line x1="550" y1="125" x2="640" y2="125"/>
+    <line x1="450" y1="170" x2="450" y2="260"/>
+  </g>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#89919a"/></marker></defs>
+  <text x="450" y="400" font-family="Arial" font-size="12" fill="#6a6d70" text-anchor="middle">placeholder diagram — replace with the real architecture</text>
+</svg>
